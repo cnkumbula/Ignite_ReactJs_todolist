@@ -1,14 +1,23 @@
-import Text from "./components/text"
+import { BrowserRouter, Route, Routes } from "react-router";
+import PageComponents from "./pages/page-components";
+import LayoutMain from "./pages/layout-main";
+import PageHome from "./pages/page-home";
+
 
 export default function App() {
-
-
   return (
-    <div className="flex flex-col gap-2">
-      <Text variant="body-md" className="text-pink-base"> hello </Text>
-      <Text className="text-pink-base"> hello </Text>
-      <Text variant="body-md-bold"> hello </Text>
-    </div>
+    <BrowserRouter>
+
+      <Routes>
+        <Route element={<LayoutMain />}>
+          <Route index element={<PageHome />}/>
+          <Route path="/PageComponents" element={<PageComponents />} />
+        </Route>
+      </Routes>
+
+    </BrowserRouter>
   )
+
+  
 }
 
